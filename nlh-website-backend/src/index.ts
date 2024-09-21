@@ -1,7 +1,7 @@
-const app = require('./app');
-const config = require('./config/config');
-const logger = require('./app/middlewares/logger.middleware');
+import app from './app';
+import config from './config/config';
+import logger from './app/middlewares/logger.middleware';
 
 app.listen(config.PORT, () => {
-    console.log(`Server running on  on port ${config.PORT}`);
+    logger.info(`Server running on  on port ${config.PORT}`);
 });

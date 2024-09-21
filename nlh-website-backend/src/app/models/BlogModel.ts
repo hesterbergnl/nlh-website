@@ -1,5 +1,5 @@
+import sequelize from "../../database/sequelize";
 const {DataTypes} = require('sequelize');
-
 
 const Blog = sequelize.define('Blog', {
     title: {
@@ -15,3 +15,5 @@ const Blog = sequelize.define('Blog', {
         allowNull: false
     }
 });
+
+export default Blog;
