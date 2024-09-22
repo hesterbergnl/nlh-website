@@ -1,5 +1,5 @@
 import sequelize from './sequelize';
-import Blog from './app/models/BlogModel';
+import Blog from '../app/models/BlogModel';
 
 const init = async () => {
     try {

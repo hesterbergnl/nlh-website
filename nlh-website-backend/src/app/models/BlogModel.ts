@@ -1,7 +1,15 @@
-import sequelize from "../../database/sequelize";
-const {DataTypes} = require('sequelize');
+import sequelize from "../../utils/sequelize";
+import {DataTypes, Model} from 'sequelize';
+import BlogAttributes from "../../utils/types";
 
-const Blog = sequelize.define('Blog', {
+interface BlogInstance extends Model<BlogAttributes, BlogAttributes>, BlogAttributes {}
+
+const Blog = sequelize.define<BlogInstance>('Blog', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     title: {
         type: DataTypes.STRING,
         allowNull: false
@@ -12,6 +20,22 @@ const Blog = sequelize.define('Blog', {
     },
     content: {
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    published: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+    },
+    publishedAt: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    category: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    createdById: {
+        type: DataTypes.INTEGER,
         allowNull: false
     }
 });

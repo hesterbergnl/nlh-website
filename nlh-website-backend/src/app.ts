@@ -7,7 +7,7 @@ import blogRouter from './app/routes/blog.routes';
 
 import { errorHandler, requestLogger, unknownEndpoint } from './app/middlewares/error.middleware';
 
-import init from './database/init';
+import init from './utils/init';
 import logger from './app/middlewares/logger.middleware';
 
 init().then().catch(error => {
