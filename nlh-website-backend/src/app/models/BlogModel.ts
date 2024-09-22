@@ -1,10 +1,10 @@
 import sequelize from "../../utils/sequelize";
-import {DataTypes, Model} from 'sequelize';
-import BlogAttributes from "../../utils/types";
+import { DataTypes, Model } from 'sequelize';
+import { BlogAttributes } from "../../utils/types";
 
 interface BlogInstance extends Model<BlogAttributes, BlogAttributes>, BlogAttributes {}
 
-const Blog = sequelize.define<BlogInstance>('Blog', {
+const Blog = sequelize.define<BlogInstance>('blog', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

@@ -1,4 +1,4 @@
-interface BlogAttributes {
+export interface BlogAttributes {
     id: number;
     title: string;
     description: string;
@@ -9,5 +9,10 @@ interface BlogAttributes {
     category: string;
 }
 
-
-export default BlogAttributes
+export interface UserAttributes {
+    id: number;
+    name: string;
+    username: string;
+    password: string;
+    createdById: number;
+}
