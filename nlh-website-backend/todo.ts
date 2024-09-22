@@ -9,3 +9,5 @@
 //TODO add pagination for blogs
 //TODO setup cloudflare tunnels
 //TODO setup links to photos for blogs
+//TODO add tests!
+//TODO build the front end :)
