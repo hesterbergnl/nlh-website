@@ -11,3 +11,4 @@
 //TODO setup links to photos for blogs
 //TODO add tests!
 //TODO build the front end :)
+//TODO go back and check the app.ts file to make sure imports are correct
