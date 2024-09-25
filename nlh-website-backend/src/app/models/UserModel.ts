@@ -1,31 +1,51 @@
 import sequelize from "../../utils/sequelize";
 import { DataTypes, Model } from 'sequelize';
-import { UserAttributes } from "../../utils/types";
 
-interface UserInstance extends Model<UserAttributes, UserAttributes>, UserAttributes {}
+class User extends Model {
+    public id!: number;
+    public username!: string;
+    public name!: string;
+    public email!: string;
+    public password!: string;
+    public createdById!: number;
+}
 
-const User = sequelize.define<UserInstance>('user', {
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+User.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        createdById: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
     },
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    createdById: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+    {
+        sequelize,
+        modelName: 'User',
+        tableName: 'users',
+        timestamps: false,
     }
-});
+);
 
 export default User;

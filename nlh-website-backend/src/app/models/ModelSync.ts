@@ -4,6 +4,7 @@ import sequelize from '../../utils/sequelize';
 
 User.hasMany(Blog)
 Blog.hasOne(User)
+User.hasOne(User)
 sequelize.sync( { alter: true } )
 
 

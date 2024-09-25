@@ -1,5 +1,5 @@
-import {Blog} from "../models/ModelSync";
-import {BlogAttributes, BlogEntrySubmission} from '../../utils/types';
+import { Blog } from "../models/ModelSync";
+import { BlogAttributes, BlogEntrySubmission } from '../../utils/types';
 
 export const getBlogs = async (): Promise<BlogAttributes[]> => {
     return await Blog.findAll()

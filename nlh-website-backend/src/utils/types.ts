@@ -12,6 +12,15 @@ export interface BlogAttributes {
 export interface UserAttributes {
     id: number;
     name: string;
+    email: string;
+    username: string;
+    password: string;
+    createdById: number;
+}
+
+export interface UserSubmission {
+    name: string;
+    email: string;
     username: string;
     password: string;
     createdById: number;
