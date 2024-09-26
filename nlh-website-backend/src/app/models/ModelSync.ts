@@ -3,8 +3,9 @@ import User from './UserModel';
 import sequelize from '../../utils/sequelize';
 
 User.hasMany(Blog)
-Blog.hasOne(User)
+Blog.belongsTo(User, { foreignKey: 'createdById' })
 User.hasOne(User)
+
 sequelize.sync( { alter: true } )
 
 

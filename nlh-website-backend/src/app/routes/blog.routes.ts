@@ -1,15 +1,11 @@
-import { Request, Response } from 'express';
-import { getBlogs, addBlog } from '../services/BlogService';
 import { Router } from 'express';
+import { addBlogHandler, getBlogsHandler } from '../controllers/BlogController';
+import { validateBlogEntry } from '../../utils/validation';
 
 const blogRouter = Router();
 
-blogRouter.get('/', (_req: Request, res: Response) => {
-    res.json(getBlogs());
-});
+blogRouter.get('/', getBlogsHandler);
 
-blogRouter.post('/', (req: Request, res: Response) => {
-    res.json(addBlog(req.body));
-});
+blogRouter.post('/', validateBlogEntry, addBlogHandler);
 
 export default blogRouter;
