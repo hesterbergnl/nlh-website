@@ -4,7 +4,8 @@ require('express-async-errors')
 import cors from 'cors';
 
 import blogRouter from './app/routes/blog.routes';
-import userRouter from './app/routes/user.routes'
+import userRouter from './app/routes/user.routes';
+import loginRouter from './app/routes/login.routes'
 
 import { errorHandler, requestLogger, unknownEndpoint } from './app/middlewares/error.middleware';
 
@@ -20,7 +21,8 @@ app.use(express.json());
 
 app.use(requestLogger);
 app.use('/api/blog', blogRouter);
-app.use('/api/user', userRouter)
+app.use('/api/user', userRouter);
+app.use('/api/login', loginRouter);
 app.use(unknownEndpoint);
 app.use(errorHandler);
 

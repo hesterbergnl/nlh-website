@@ -19,7 +19,8 @@ export const validateUserEntry = [
                 // Will use the below as the error message
                 throw new Error('A user already exists with this username');
             }}),
-    body('password').exists().trim().isString().isLength({min: 8}).withMessage('Password validation failed!'),
+    body('password').exists().trim().isString().withMessage('Password validation failed!').isLength({min: 8})
+        .withMessage('Password must be at least 6 characters long'),
     body('createdById').exists().trim().isInt().withMessage('Created by ID validation failed!'),
     (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req);
@@ -48,3 +49,17 @@ export const validateBlogEntry = [
         return;
     }
 ]
+
+export const validateLoginEntry = [
+    body('email').exists().trim().isEmail().withMessage('Email validation failed!'),
+    body('password').exists().trim().isString().notEmpty().withMessage('Password is required').isLength( { min: 8 })
+        .withMessage('Password must be at least 6 characters long'),
+    (req: Request, res: Response, next: NextFunction) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({errors: errors.array()});
+        }
+        next();
+        return;
+    }
+];

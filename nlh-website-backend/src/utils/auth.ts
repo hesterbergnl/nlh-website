@@ -11,8 +11,8 @@ export const hashPassword = async (password: string) => {
     return bcrypt.hash(password, salt);
 };
 
-export const comparePassword = (password: string, salt: string) => {
-    return bcrypt.compare(password, salt);
+export const comparePassword = (password: string, hashPassword: string) => {
+    return bcrypt.compare(password, hashPassword);
 };
 
 export const generateToken = (userId: number) => {
