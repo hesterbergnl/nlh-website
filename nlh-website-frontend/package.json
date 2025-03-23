@@ -12,10 +12,12 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
     "@types/react-router-bootstrap": "^0.26.6",
+    "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
     "react-redux": "^9.2.0",
     "react-router-bootstrap": "^0.26.3",
     "react-router-dom": "^7.3.0"
@@ -31,6 +33,6 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^6.2.2"
   }
 }
