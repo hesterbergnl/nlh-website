@@ -4,7 +4,6 @@ import PostSummary from '../components/PostSummary.tsx';
 const Home: React.FC = () => (
     <div>
         <PostSummary/>
-        <p> This is the home page </p>
     </div>
 );
 

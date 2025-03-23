@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 const baseUrl = 'http://localhost:3001/api/login'
 
 interface Credentials {
@@ -8,7 +9,7 @@ interface Credentials {
 
 const login = async (credentials: Credentials) => {
     const response = await axios.post(baseUrl, credentials)
-    return response.data
+    return { email: credentials.email, token: response.data.token }
 }
 
 export default { login }
