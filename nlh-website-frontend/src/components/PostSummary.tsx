@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
+import { Link } from 'react-router-dom';
 
 const PostSummary: React.FC = () => {
     const posts = useSelector((state: RootState) => state.posts).posts
@@ -11,7 +12,7 @@ const PostSummary: React.FC = () => {
             <h1> Posts </h1>
             { posts.map((post) => (
                 <div key={post.id}>
-                    <h3>{post.title}</h3>
+                    <h3><Link to={`/post/${post.id}`}>{post.title}</Link></h3>
                     <p>{post.description}</p>
                 </div>
             ))}
