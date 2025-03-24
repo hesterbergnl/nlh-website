@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import loginService from '../../services/login';
+import {AppDispatch} from "../index.ts";
 
 interface User {
     email: string;
@@ -8,6 +9,11 @@ interface User {
 
 interface AuthState {
     user: User | null;
+}
+
+interface LoginPayload {
+    email: string;
+    password: string;
 }
 
 const initialState: AuthState = {
@@ -27,9 +33,9 @@ const authSlice = createSlice({
     },
 });
 
-export const loginAction = ({ email, password }: { email: string; password: string }) => {
+export const loginAction = ({ email, password }: LoginPayload) => {
     console.log("Login Action!")
-    return async (dispatch: any) => {
+    return async (dispatch: AppDispatch) => {
         try {
             const data = await loginService.login({email, password});
             console.log(data);

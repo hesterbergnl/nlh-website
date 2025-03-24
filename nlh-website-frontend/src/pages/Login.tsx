@@ -3,16 +3,18 @@ import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { loginAction } from '../store/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
+import {useDispatch} from "react-redux";
 
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you would normally validate credentials or call an API.
-        loginAction({ email, password });
+        // TODO: fix the type of loginAction to be correct per typescript rules
+        dispatch(loginAction({ email, password }) as any);
         navigate('/'); // Redirect to the home page after login
     };
 
