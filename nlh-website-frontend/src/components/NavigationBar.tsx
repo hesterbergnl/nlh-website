@@ -36,6 +36,9 @@ const NavigationBar: React.FC = () => {
                     </Nav>
                     {user ? (
                         <Nav>
+                            <Nav.Link href='#' as={Link} to='/newpost'>
+                                New Post
+                            </Nav.Link>
                             <Navbar.Text className="me-2">
                                 Signed in as: {user.email}
                             </Navbar.Text>

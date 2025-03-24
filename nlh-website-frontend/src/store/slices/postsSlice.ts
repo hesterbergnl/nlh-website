@@ -46,5 +46,10 @@ export const initializePosts = () => {
     };
 };
 
+//TODO: Setup this method to post to the backend
+export const postSubmit = (postBody: string) => {
+    console.log(postBody)
+}
+
 export const { addPost, setPosts } = postsSlice.actions;
 export default postsSlice.reducer;
