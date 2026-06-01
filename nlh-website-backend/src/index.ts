@@ -1,7 +1,8 @@
-import app from './app';
-import config from './config/config';
-import logger from './app/middlewares/logger.middleware';
+import { createApp } from "./app.js";
+import { env } from "./env.js";
 
-app.listen(config.PORT, () => {
-    logger.info(`Server running on  on port ${config.PORT}`);
+const app = createApp();
+
+app.listen(env.PORT, () => {
+  console.log(`nlh-website-backend listening on http://localhost:${env.PORT}`);
 });
